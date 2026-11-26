@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  services  Service[]
+  createdAt DateTime  @default(now())
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  priceCents  Int
+  durationMin Int
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime @default(now())
+}

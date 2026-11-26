@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+prisma/*.db
+prisma/*.db-journal
+generated/prisma/
+.DS_Store
+coverage/
+dist/
+STUDIO.md
