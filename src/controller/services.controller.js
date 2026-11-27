@@ -10,6 +10,9 @@ export async function show(req, res) {
   const service = await prisma.service.findUnique({
     where: { id: serviceId }
   })
+  if (!service) {
+    return res.status(404).json({ error: 'Servizio non trovato.' })
+  }
   res.json(service)
 }
 
@@ -36,5 +39,5 @@ export async function destroy(req, res) {
   const deletedService = await prisma.service.delete({
     where: { id: serviceId }
   })
-  res.status(204).json(deletedService)
+  res.status(200).json(deletedService)
 }

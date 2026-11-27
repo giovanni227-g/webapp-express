@@ -19,21 +19,20 @@ PORT=3000
 ## Avvio
 
 ```bash
-npm install
-npm run db:validate
-npm run db:migrate
-npm run dev
+pnpm install
+pnpm run db:validate
+pnpm run db:migrate
+pnpm run dev
 ```
 
 ## Comandi
 
 ```bash
-npm start
-npm run check
-npm run db:generate
-npm run db:migrate
-npm run db:studio
-npm run db:validate
+pnpm start
+pnpm run check
+pnpm run db:generate
+pnpm run db:migrate
+pnpm run db:studio
+pnpm run db:validate
+pnpm test
 ```
-
-Il backend espone attualmente la rotta di ingresso `/` e le rotte dimostrative `/api/services`. I modelli Prisma `Category` e `Service` e la migrazione esistente sono mantenuti per non alterare lo stato del database.
