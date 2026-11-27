@@ -24,6 +24,12 @@ app.use((err, req, res, next) => {
       error: 'Servizio non trovato'
     })
   }
+  // Verifica se il formato JSON è valido, in alternativa dà codice errore corretto: 400 e non 500
+  if (err.type === 'entity.parse.failed') {
+    return res.status(400).json({
+      error: 'Formato Json non valido'
+    })
+  }
   return res.status(500).json({
     error: 'Errore interno del server'
   })

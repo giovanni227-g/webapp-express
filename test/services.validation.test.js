@@ -61,3 +61,11 @@ test('POST Rifiuta name vuoto', async () => {
 
   assert.equal(response.status, 400)
 })
+test('Rifiuta un JSON rotto', async () => {
+  const response = await request(app)
+    .post('/api/services')
+    .set('Content-Type', 'application/json')
+    .send('{"titolo": "Prova",')
+
+  assert.equal(response.status, 400)
+})
