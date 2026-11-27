@@ -21,6 +21,7 @@
     "@prisma/adapter-mariadb": "7.10.1",
     "@prisma/client": "7.10.1",
     "@prisma/client-runtime-utils": "7.10.1",
+    "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^5.1.0"
   },

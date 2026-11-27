@@ -36,3 +36,33 @@ pnpm run db:studio
 pnpm run db:validate
 pnpm test
 ```
+
+## Rotte API
+
+| Metodo | Rotta               | Descrizione                                        | Successo |
+| ------ | ------------------- | -------------------------------------------------- | -------- |
+| GET    | `/api/services`     | Restituisce la lista di tutti i servizi            | `200`    |
+| GET    | `/api/services/:id` | Restituisce il servizio con l'id indicato          | `200`    |
+| POST   | `/api/services`     | Crea un nuovo servizio                             | `201`    |
+| PUT    | `/api/services/:id` | Modifica il servizio con l'id indicato             | `200`    |
+| DELETE | `/api/services/:id` | Elimina il servizio e restituisce i dati eliminati | `200`    |
+
+Body richiesto da `POST` e `PUT`:
+
+```json
+{
+  "name": "Taglio donna",
+  "description": "Taglio e piega",
+  "priceCents": 3500,
+  "durationMin": 45,
+  "categoryId": 1
+}
+```
+
+Risposte di errore (sempre JSON con il campo `error`):
+
+| Status | Quando                            |
+| ------ | --------------------------------- |
+| `400`  | Dati non validi o JSON malformato |
+| `404`  | Servizio non trovato              |
+| `500`  | Errore interno del server         |

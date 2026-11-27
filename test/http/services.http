@@ -8,13 +8,25 @@ GET http://localhost:3000/api/services/1
 POST http://localhost:3000/api/services
 Content-Type: application/json
 
-{}
+{
+  "name": "Taglio donna",
+  "description": "Taglio e piega",
+  "priceCents": 3500,
+  "durationMin": 45,
+  "categoryId": 1
+}
 
 ### Modifica servizio
 PUT http://localhost:3000/api/services/1
 Content-Type: application/json
 
-{}
+{
+  "name": "Taglio donna",
+  "description": "Taglio e piega",
+  "priceCents": 3500,
+  "durationMin": 45,
+  "categoryId": 1
+}
 
 ### Elimina servizio
 DELETE http://localhost:3000/api/services/1

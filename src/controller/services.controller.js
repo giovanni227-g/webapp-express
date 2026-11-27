@@ -11,7 +11,7 @@ export async function show(req, res) {
     where: { id: serviceId }
   })
   if (!service) {
-    return res.status(404).json({ error: 'Servizio non trovato.' })
+    return res.status(404).json({ error: 'Servizio non trovato' })
   }
   res.json(service)
 }

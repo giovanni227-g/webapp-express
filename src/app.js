@@ -1,10 +1,12 @@
 import express from 'express'
 import servicesRouter from './routes/services.routes.js'
+import cors from 'cors'
 
 const app = express() // Crea l'app Express su cui registriamo middleware e rotte
 
-// Converte il body JSON della richiesta in req.body, così i controller possono leggerlo
-app.use(express.json())
+app.use(cors()) // Permette fetching tra BE e FE
+
+app.use(express.json()) // Converte il body JSON della richiesta in req.body, così i controller possono leggerlo
 
 // Rotta base che conferma che l'API è attiva
 app.get('/', (req, res) => {
@@ -27,7 +29,7 @@ app.use((err, req, res, next) => {
   // Verifica se il formato JSON è valido, in alternativa dà codice errore corretto: 400 e non 500
   if (err.type === 'entity.parse.failed') {
     return res.status(400).json({
-      error: 'Formato Json non valido'
+      error: 'Formato JSON non valido'
     })
   }
   return res.status(500).json({
